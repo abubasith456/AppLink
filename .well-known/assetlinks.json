@@ -2,14 +2,6 @@
   "relation": ["delegate_permission/common.handle_all_urls"],
   "target": {
     "namespace": "android_app",
-    "package_name": "at.bks.securityapp.kobil",
-    "sha256_cert_fingerprints":
-    ["53:40:2A:5F:76:D5:B9:3D:84:C7:73:7D:FD:36:1A:83:F5:78:EC:BA:FE:CA:09:87:32:B1:52:AF:45:79:15:B9"]
-  }
-},{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": {
-    "namespace": "android_app",
     "package_name": "ch.finstar.finsign.test",
     "sha256_cert_fingerprints":
     ["3A:EB:08:35:10:3A:CC:15:95:52:80:09:77:04:31:CF:AD:7F:C8:C0:F9:D2:D7:E9:AC:1C:FA:CC:E2:4E:6A:B2"]
