@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <title>Home Page</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Center Anchor Tag</title>
@@ -29,10 +30,36 @@
             background-color: #0056b3;
         }
     </style>
+
+    <!-- Script -->
+
+    <script>
+        function openAppOrRedirect() {
+            // Define your app's custom URL scheme and fallback URL
+            var appUrl = "http://applinktest.netlify.app/appToApp";
+            var fallbackUrl = "https://play.google.com/store/apps/";
+
+            // Create an iframe to attempt to open the app
+            var iframe = document.createElement("iframe");
+            iframe.style.border = "none";
+            iframe.style.width = "0";
+            iframe.style.height = "0";
+            iframe.src = appUrl;
+            document.body.appendChild(iframe);
+
+            // Remove iframe and redirect to fallback after a delay if the app doesn't open
+            window.setTimeout(function () {
+                document.body.removeChild(iframe);
+                window.location.href = fallbackUrl;
+            }, 1000); // Delay in milliseconds
+        }
+    </script>
+
 </head>
 
-<body>
-    <a href="https://www.google.com">Click Here</a>
+<body onload="openAppOrRedirect()">
+    <h1>Welcome to the Home Page</h1>
+    <a href="appToApp.html" class="button">Go to App To App</a>
 </body>
 
 </html>
