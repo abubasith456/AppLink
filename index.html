@@ -42,13 +42,14 @@
 
         function openAppOrRedirect() {
             let os = getBrowserOs();
-            let appLinkUrl = "https://applinktest.netlify.app";
+            let appLinkUrl = "https://applinktest.netlify.app/apptoapp";
+            let iosLinkUrl = "https://applinktest.netlify.app";
             switch (os) {
                 case "android":
                     window.location.href = appLinkUrl;
                     break;
                 case "ios":
-                    window.location.href = appLinkUrl;
+                    window.location.href = iosLinkUrl;
                     break;
                 default:
                     window.location.href = "apptoapp.html";
