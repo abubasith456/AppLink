@@ -1,27 +1,19 @@
-[
-    {
-        "applinks": {
-            "apps": [],
-            "details": [
-                {
-                    "appID": "GQYVQY42PQ.at.obk.securityapp.kobil.env",
-                    "paths": [
-                        "/apptoapp/*"
-                    ]
-                },
-                {
-                    "appID": "GQYVQY42PQ.at.btv.securityapp.kobil.env",
-                    "paths": [
-                        "/apptoapp/*"
-                    ]
-                },
-                {
-                    "appID": "GQYVQY42PQ.at.bks.securityapp.kobil.env",
-                    "paths": [
-                        "/apptoapp/*"
-                    ]
-                }
-            ]
-        }
+{
+    "applinks": {
+        "details": [
+            {
+                "appIDs": [
+                    "GQYVQY42PQ.at.obk.securityapp.kobil.env",
+                    "GQYVQY42PQ.at.btv.securityapp.kobil.env",
+                    "GQYVQY42PQ.at.bks.securityapp.kobil.env"
+                ],
+                "components": [
+                    {
+                        "/": "/apptoapp",
+                        "comment": "Matches any URL with a path that starts with /apptoapp/."
+                    }
+                ]
+            }
+        ]
     }
-]
+}
