@@ -9,12 +9,5 @@
                 ]
             }
         ]
-    },
-    "webcredentials": {
-        "apps": [
-            "GQYVQY42PQ.at.obk.securityapp.kobil.env",
-            "GQYVQY42PQ.at.btv.securityapp.kobil.env",
-            "GQYVQY42PQ.at.bks.securityapp.kobil.env"
-        ]
     }
 }
