@@ -4,57 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open My App</title>
-</head>
-
-<body>
-    <button id="openAppButton">Open My App</button>
-
-    <style>
-        body,
-        html {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: Arial, sans-serif;
-        }
-
-        button {
-            text-decoration: none;
-            color: white;
-            background-color: #007BFF;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 20px;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
-
+    <title>App to App</title>
     <script>
-        document.getElementById('openAppButton').addEventListener('click', function () {
-            openAppOrRedirect();
-        });
-
-        function openAppOrRedirect() {
+        window.onload = function () {
             let os = getBrowserOs();
-            let androidAppLink = "https://applinktest.netlify.app/apptoapp";
-            let iosUniversalLink = "TODO"
             switch (os) {
                 case "android":
-                    window.location.href = androidAppLink;
+                    window.location.href = "https://play.google.com/store/apps";
                     break;
                 case "ios":
-                    window.location.href = iosUniversalLink;
+                    window.location.href = "https://www.apple.com/";
                     break;
                 default:
-                    window.location.href = "apptoapp.html";
+                    window.location.href = "https://www.google.com";
             }
-        }
+        };
 
         function getBrowserOs() {
             const userAgent = window.navigator.userAgent;
@@ -81,8 +45,11 @@
             }
             return "unknown";
         }
-
     </script>
+</head>
+
+<body>
+    <h1>Redirecting...</h1>
 </body>
 
 </html>
