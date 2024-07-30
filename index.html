@@ -37,25 +37,53 @@
 
     <script>
         document.getElementById('openAppButton').addEventListener('click', function () {
-            // The App Link URL that your app is associated with
-            var appLinkUrl = 'https://applinktest.netlify.app/apptoapp';
+            openAppOrRedirect();
+            // // The App Link URL that your app is associated with
+            // var appLinkUrl = 'https://applinktest.netlify.app/apptoapp';
 
-            // Fallback URL to the Google Play Store
-            var playStoreUrl = 'https://play.google.com/store/apps/details?id=com.example.yourapp';
+            // // Fallback URL to the Google Play Store
+            // var playStoreUrl = 'https://play.google.com/store/apps/details?id=com.example.yourapp';
 
-            // Start a timer for redirecting to the Play Store if the app doesn't open
-            var redirectTimeout = setTimeout(function () {
-                window.location.href = playStoreUrl;
-            }, 1500); // Adjust the delay as needed
+            // // Start a timer for redirecting to the Play Store if the app doesn't open
+            // var redirectTimeout = setTimeout(function () {
+            //     window.location.href = playStoreUrl;
+            // }, 1500); // Adjust the delay as needed
 
-            // Try to open the app
-            window.location.href = appLinkUrl;
+            // // Try to open the app
+            // window.location.href = appLinkUrl;
 
-            // Attempt to clear the timeout if the app opens (focus loss detection)
-            window.onblur = function () {
-                clearTimeout(redirectTimeout);
-            };
+            // // Attempt to clear the timeout if the app opens (focus loss detection)
+            // window.onblur = function () {
+            //     clearTimeout(redirectTimeout);
+            // };
         });
+
+        function openAppOrRedirect() {
+            // Define your app's custom URL scheme and fallback URL
+            var appUrl = "https://applinktest.netlify.app/apptoapp";
+            var fallbackUrl = "https://play.google.com/store/apps/";
+
+            // Attempt to open the app
+            var start = new Date().getTime();
+            var iframe = document.createElement("iframe");
+            iframe.style.border = "none";
+            iframe.style.width = "0";
+            iframe.style.height = "0";
+            iframe.src = appUrl;
+            document.body.appendChild(iframe);
+
+            // Check if the app was opened successfully
+            setTimeout(function () {
+                var end = new Date().getTime();
+                if (end - start < 1500) {
+                    // App is not installed, redirect to the fallback URL
+                    window.location.href = fallbackUrl;
+                }
+                // Remove the iframe
+                document.body.removeChild(iframe);
+            }, 1000);
+        }
+
     </script>
 </body>
 
