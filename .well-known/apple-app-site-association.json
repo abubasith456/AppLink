@@ -4,7 +4,19 @@
             "apps": [],
             "details": [
                 {
-                    "appID": "<TEAM_ID>.<BUNDLE_IDENTIFIER>",
+                    "appID": "GQYVQY42PQ.at.obk.securityapp.kobil.env",
+                    "paths": [
+                        "/apptoapp/*"
+                    ]
+                },
+                {
+                    "appID": "GQYVQY42PQ.at.btv.securityapp.kobil.env",
+                    "paths": [
+                        "/apptoapp/*"
+                    ]
+                },
+                {
+                    "appID": "GQYVQY42PQ.at.bks.securityapp.kobil.env",
                     "paths": [
                         "/apptoapp/*"
                     ]
