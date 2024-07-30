@@ -62,9 +62,9 @@
             // Define your app's custom URL scheme and fallback URL
             var appUrl = "https://applinktest.netlify.app/apptoapp";
             var fallbackUrl = "https://play.google.com/store/apps/";
+            var timeout;
 
-            // Attempt to open the app
-            var start = new Date().getTime();
+            // Create a hidden iframe
             var iframe = document.createElement("iframe");
             iframe.style.border = "none";
             iframe.style.width = "0";
@@ -72,16 +72,17 @@
             iframe.src = appUrl;
             document.body.appendChild(iframe);
 
-            // Check if the app was opened successfully
-            setTimeout(function () {
-                var end = new Date().getTime();
-                if (end - start < 1500) {
-                    // App is not installed, redirect to the fallback URL
-                    window.location.href = fallbackUrl;
-                }
-                // Remove the iframe
+            // Try to detect if the app was opened
+            timeout = setTimeout(function () {
                 document.body.removeChild(iframe);
-            }, 1000);
+                window.location.href = fallbackUrl;
+            }, 1500);
+
+            // Check if the page was hidden, indicating the app opened
+            window.onblur = function () {
+                clearTimeout(timeout);
+                document.body.removeChild(iframe);
+            };
         }
 
     </script>
