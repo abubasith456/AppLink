@@ -65,20 +65,31 @@
             var timeout;
             var isAppOpened = false;
 
-            // Attempt to open the app
-            window.location.href = appUrl;
+            // Create a hidden iframe to attempt to open the app
+            var iframe = document.createElement("iframe");
+            iframe.style.border = "none";
+            iframe.style.width = "0";
+            iframe.style.height = "0";
+            iframe.src = appUrl;
+            document.body.appendChild(iframe);
 
-            // Set a timeout to redirect to fallback URL if the app isn't opened
-            timeout = setTimeout(function () {
+            // Redirect to the fallback URL if the app doesn't open within a delay
+            timeout = setTimeout(function() {
+                document.body.removeChild(iframe);
                 if (!isAppOpened) {
                     window.location.href = fallbackUrl;
                 }
-            }, 1500); // Adjust this delay as needed
+            }, 2000); // Adjust this delay as needed
 
-            // Monitor visibility change
-            window.addEventListener('blur', function () {
+            // Attempt to open the app using window.location.href
+            setTimeout(function() {
+                window.location.href = appUrl;
+            }, 100); // Small delay to ensure iframe has been appended
+
+            // Monitor visibility change to assume app was opened
+            window.addEventListener('blur', function() {
                 clearTimeout(timeout);
-                isAppOpened = true; // Assuming app is opened if window loses focus
+                isAppOpened = true; // Assume app was opened if the window loses focus
             });
         }
 
