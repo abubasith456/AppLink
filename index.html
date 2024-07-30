@@ -1,11 +1,15 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Home Page</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Center Anchor Tag</title>
+    <title>Open My App</title>
+</head>
+
+<body>
+    <button id="openAppButton">Open My App</button>
+
     <style>
         body,
         html {
@@ -17,7 +21,7 @@
             font-family: Arial, sans-serif;
         }
 
-        a {
+        button {
             text-decoration: none;
             color: white;
             background-color: #007BFF;
@@ -26,60 +30,33 @@
             font-size: 20px;
         }
 
-        a:hover {
+        button:hover {
             background-color: #0056b3;
         }
     </style>
 
     <script>
-        function openAppOrRedirect() {
-            // Define your app's custom URL scheme and fallback URL
-            var appUrl = "https://applinktest.netlify.app/apptoapp";
-            var fallbackUrl = "https://play.google.com/store/apps/";
-
-            // Create an iframe to attempt to open the app
-            var iframe = document.createElement("iframe");
-            iframe.style.border = "none";
-            iframe.style.width = "0";
-            iframe.style.height = "0";
-            iframe.src = appUrl;
-            document.body.appendChild(iframe);
-
-            // Remove iframe and redirect to fallback after a delay if the app doesn't open
-            window.setTimeout(function () {
-                document.body.removeChild(iframe);
-                window.location.href = fallbackUrl;
-            }, 1000); // Delay in milliseconds
-        }
-    </script>
-
-</head>
-
-<body onload="openAppOrRedirect()">
-    <h1>Welcome to the Home Page</h1>
-    <a href="appToApp.html" class="button">Go to App To App</a>
-</body>
-
-</html> -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open My App</title>
-</head>
-<body>
-    <button id="openAppButton">Open My App</button>
-
-    <script>
-        document.getElementById('openAppButton').addEventListener('click', function() {
+        document.getElementById('openAppButton').addEventListener('click', function () {
             // The App Link URL that your app is associated with
             var appLinkUrl = 'https://applinktest.netlify.app/apptoapp';
 
-            // Open the App Link
+            // Fallback URL to the Google Play Store
+            var playStoreUrl = 'https://play.google.com/store/apps/details?id=com.example.yourapp';
+
+            // Start a timer for redirecting to the Play Store if the app doesn't open
+            var redirectTimeout = setTimeout(function () {
+                window.location.href = playStoreUrl;
+            }, 1500); // Adjust the delay as needed
+
+            // Try to open the app
             window.location.href = appLinkUrl;
+
+            // Attempt to clear the timeout if the app opens (focus loss detection)
+            window.onblur = function () {
+                clearTimeout(redirectTimeout);
+            };
         });
     </script>
 </body>
+
 </html>
