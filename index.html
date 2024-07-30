@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -31,8 +31,6 @@
         }
     </style>
 
-    <!-- Script -->
-
     <script>
         function openAppOrRedirect() {
             // Define your app's custom URL scheme and fallback URL
@@ -62,4 +60,26 @@
     <a href="appToApp.html" class="button">Go to App To App</a>
 </body>
 
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open My App</title>
+</head>
+<body>
+    <button id="openAppButton">Open My App</button>
+
+    <script>
+        document.getElementById('openAppButton').addEventListener('click', function() {
+            // The App Link URL that your app is associated with
+            var appLinkUrl = 'https://applinktest.netlify.app/apptoapp';
+
+            // Open the App Link
+            window.location.href = appLinkUrl;
+        });
+    </script>
+</body>
 </html>
