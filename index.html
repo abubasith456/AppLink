@@ -61,28 +61,25 @@
         function openAppOrRedirect() {
             // Define your app's custom URL scheme and fallback URL
             var appUrl = "https://applinktest.netlify.app/apptoapp";
-            var fallbackUrl = "https://play.google.com/store/apps/";
+            var fallbackUrl = "https://play.google.com/store/apps";
             var timeout;
+            var isAppOpened = false;
 
-            // Create a hidden iframe
-            var iframe = document.createElement("iframe");
-            iframe.style.border = "none";
-            iframe.style.width = "0";
-            iframe.style.height = "0";
-            iframe.src = appUrl;
-            document.body.appendChild(iframe);
+            // Attempt to open the app
+            window.location.href = appUrl;
 
-            // Try to detect if the app was opened
+            // Set a timeout to redirect to fallback URL if the app isn't opened
             timeout = setTimeout(function () {
-                document.body.removeChild(iframe);
-                window.location.href = fallbackUrl;
-            }, 1500);
+                if (!isAppOpened) {
+                    window.location.href = fallbackUrl;
+                }
+            }, 1500); // Adjust this delay as needed
 
-            // Check if the page was hidden, indicating the app opened
-            window.onblur = function () {
+            // Monitor visibility change
+            window.addEventListener('blur', function () {
                 clearTimeout(timeout);
-                document.body.removeChild(iframe);
-            };
+                isAppOpened = true; // Assuming app is opened if window loses focus
+            });
         }
 
     </script>
