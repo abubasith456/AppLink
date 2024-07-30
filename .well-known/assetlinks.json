@@ -17,7 +17,7 @@
     ],
     "target": {
       "namespace": "android_app",
-      "package_name": "at.bks.securityapp.int",
+      "package_name": "at.btv.securityapp.kobil",
       "sha256_cert_fingerprints": [
         "53:40:2A:5F:76:D5:B9:3D:84:C7:73:7D:FD:36:1A:83:F5:78:EC:BA:FE:CA:09:87:32:B1:52:AF:45:79:15:B9"
       ]
@@ -29,31 +29,7 @@
     ],
     "target": {
       "namespace": "android_app",
-      "package_name": "at.bks.securityapp.gamma",
-      "sha256_cert_fingerprints": [
-        "53:40:2A:5F:76:D5:B9:3D:84:C7:73:7D:FD:36:1A:83:F5:78:EC:BA:FE:CA:09:87:32:B1:52:AF:45:79:15:B9"
-      ]
-    }
-  },
-  {
-    "relation": [
-      "delegate_permission/common.handle_all_urls"
-    ],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "at.bks.securityapp",
-      "sha256_cert_fingerprints": [
-        "53:40:2A:5F:76:D5:B9:3D:84:C7:73:7D:FD:36:1A:83:F5:78:EC:BA:FE:CA:09:87:32:B1:52:AF:45:79:15:B9"
-      ]
-    }
-  },
-  {
-    "relation": [
-      "delegate_permission/common.handle_all_urls"
-    ],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "at.bks.securityapp.test",
+      "package_name": "at.oberbank.securityapp.kobil",
       "sha256_cert_fingerprints": [
         "53:40:2A:5F:76:D5:B9:3D:84:C7:73:7D:FD:36:1A:83:F5:78:EC:BA:FE:CA:09:87:32:B1:52:AF:45:79:15:B9"
       ]
